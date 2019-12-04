@@ -26,6 +26,7 @@ phases:
   build:
     commands:
       - cd "$CODEBUILD_SRC_DIR"
+      - ls -al
       - cd "environments/$TF_ENV/"
       - terraform init -no-color
       - terraform $TF_ACTION -no-color
