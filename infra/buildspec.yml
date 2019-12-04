@@ -14,7 +14,7 @@ phases:
       - "cd /usr/bin"
       - "curl -s -qL -o terraform.zip https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
       - "unzip -o terraform.zip"
-      - "mv terraform /usr/bin"
+      # - "mv terraform /usr/bin"
     
   pre_build:
     commands:
@@ -28,9 +28,10 @@ phases:
     commands:
       - cd "$CODEBUILD_SRC_DIR"
       - ls -al
+      - terraform --version
       #- cd "environments/$TF_ENV/"
-      - terraform init -no-color
-      - terraform $TF_ACTION -no-color
+      # - terraform init -no-color
+      # - terraform $TF_ACTION -no-color
       - aws sts get-caller-identity
   post_build:
     commands:
