@@ -23,7 +23,7 @@ phases:
       # Workaround until TF supports creds via Task Roles when running on ECS or CodeBuild
       # See: https://github.com/hashicorp/terraform/issues/8746
       - aws sts get-caller-identity
-      - export AWS_RAW_CRED=`aws sts assume-role --role-arn $ASSUME_ROLE_ARN --role-session-name $ENV_TYPE_ASSUME`
+      - export AWS_RAW_CRED=$(aws sts assume-role --role-arn $ASSUME_ROLE_ARN --role-session-name $ENV_TYPE_ASSUME)
       - export AWS_ACCESS_KEY_ID=$(echo "${AWS_RAW_CRED}" | jq -r '.Credentials.AccessKeyId')
       - export AWS_SECRET_ACCESS_KEY=$(echo "${AWS_RAW_CRED}" | jq -r '.Credentials.SecretAccessKey')
       - export AWS_SESSION_TOKEN=$(echo "${AWS_RAW_CRED}" | jq -r '.Credentials.SessionToken')
