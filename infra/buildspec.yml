@@ -39,3 +39,6 @@ phases:
   post_build:
     commands:
       - echo "terraform $TF_ACTION completed on `date`"
+artifacts:
+  files:
+    - '**/*'
