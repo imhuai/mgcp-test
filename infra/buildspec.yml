@@ -3,7 +3,7 @@ version: 0.2
 env:
     variables:
       TF_VERSION: "0.12.9"
-      ASSUME_ROLE_ARN: "arn:aws:iam::284744337008:role/mgcp-codebuild-deploy"
+      ASSUME_ROLE_ARN: "arn:aws:iam::284744337008:role/mgcp-test-codebuild-deployment-role"
       ENV_TYPE_ASSUME: "mgcp-test"
 phases:
   install:
