@@ -33,9 +33,12 @@ phases:
       - ls -al
       - terraform --version
       #- cd "environments/$TF_ENV/"
-      # - terraform init -no-color
+
       # - terraform $TF_ACTION -no-color
       - aws sts get-caller-identity
+      - cd infra/terraform/providers/aws/us_east_1_test
+      - terraform init -no-color
+      - terraform apply -no-color
   post_build:
     commands:
       - echo "terraform $TF_ACTION completed on `date`"
