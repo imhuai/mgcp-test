@@ -38,7 +38,7 @@ phases:
       - aws sts get-caller-identity
       - cd infra/terraform/providers/aws/us_east_1_test
       - terraform init -no-color
-      - terraform apply -no-color
+      #- terraform apply -no-color
   post_build:
     commands:
       - echo "terraform $TF_ACTION completed on `date`"
