@@ -37,7 +37,7 @@ phases:
       # - terraform $TF_ACTION -no-color
       - aws sts get-caller-identity
       - cd infra/terraform/providers/aws/us_east_1_test
-      - terraform init -no-color
+      #- terraform init -no-color
       #- terraform apply -no-color
   post_build:
     commands:
